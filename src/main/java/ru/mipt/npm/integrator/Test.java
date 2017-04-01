@@ -9,4 +9,12 @@ public class Test {
 
         System.out.println("Hello world");
     }
+
+    static class MyFunction implements Func{
+
+        @Override
+        public double value(double value) {
+            return 0;
+        }
+    }
 }

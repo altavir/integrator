@@ -1,16 +1,16 @@
 package ru.mipt.npm.integrator
 
-import static ru.mipt.npm.integrator.IntegratorKt.rieman
+import static ru.mipt.npm.integrator.MainKt.rieman
 
 /**
- * Скрипт аналогичный IntegratorKt
+ * Скрипт аналогичный MainKt
  * Created by darksnake on 26-Mar-17.
  */
 
 
 println "Интегрируем синус от 0 до \u03c0 по схеме Римана"
 
-def res = rieman({ x -> Math.sin(x) }, 0.0, Math.PI,200)
+double res = rieman({ x -> Math.sin(x) }, 0.0, Math.PI,200)
 
 println "Результат: ${res}"
 
