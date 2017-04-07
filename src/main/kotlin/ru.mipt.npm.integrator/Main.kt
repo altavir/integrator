@@ -22,15 +22,21 @@ fun main(args: Array<String>) {
 
     //val sin = Func { x -> Math.sin(x) }
 
-    println("Integrating sine from 0 to Pi")
+//    println("Integrating sine from 0 to Pi")
+
+    println("Интегрируем плохую функцию:")
 
     val riemann = RiemannIntegrator(100);
+    println("Метод прямоугольников, 100 узлов: ${riemann.integrate(badFunc, 0.0, Math.PI)}")
 
-    val integrator = SplitIntegrator(riemann, listOf(0.4,0.6))
+    val riemannDense = RiemannIntegrator(300);
+    println("Метод прямоугольников, 300 узлов: ${riemannDense.integrate(badFunc, 0.0, Math.PI)}")
 
-    val res = integrator.integrate(badFunc, 0.0, Math.PI)
+    val riemannVeryDense = RiemannIntegrator(500);
+    println("Метод прямоугольников, 500 узлов: ${riemannVeryDense.integrate(badFunc, 0.0, Math.PI)}")
 
-    println("Результат: ${res}")
+    val split = SplitIntegrator(riemann, listOf(0.4, 0.6))
+    println("Раздельное интегрирование, 300 узлов: ${split.integrate(badFunc, 0.0, Math.PI)}")
 
 }
 

@@ -2,20 +2,21 @@ package ru.mipt.npm.integrator
 
 class SplitIntegrator(val integrator: UnivariateIntegrator, val borders: List<Double>) : UnivariateIntegrator {
 
-    override fun integrate(func: (Double) -> Double, a: Double, b: Double): Double {
 
-        var curA = a;
-        var curB = Math.min(borders[0], b);
+    override fun integrate(func: (Double) -> Double, a: Double, b: Double): Double {
+        assert(b > a)
+
+        val filterBorders = borders.filter { it > a && it < b }
+
+        var loBorder = a;
 
         var sum = 0.0
 
-        for (border in borders) {
-            if (border <= b) {
-                sum += integrator.integrate(func, curA, curB);
-                curA = curB;
-                curB = Math.min(border, b);
-            }
+        for (upBorder in filterBorders) {
+            sum += integrator.integrate(func, loBorder, upBorder);
+            loBorder = upBorder;
         }
+        sum += integrator.integrate(func, loBorder, b);
 
         return sum;
     }
