@@ -31,7 +31,7 @@ class Plot : View("My View") {
         displayFunction({ x -> x * x }, 0.0, Math.PI, "parabola")
     }
 
-    fun displayFunction(function: (Double) -> Double, a: Double, b: Double, label: String = "", numPoints: Int = 200) {
+    fun displayFunction(function: (Double) -> Double, a: Double, b: Double, label: String = "", numPoints: Int = 600) {
         val series = XYChart.Series<Number, Number>();
         series.name = label;
 

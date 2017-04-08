@@ -20,10 +20,6 @@ fun main(args: Array<String>) {
 
     println(Charset.defaultCharset())
 
-    //val sin = Func { x -> Math.sin(x) }
-
-//    println("Integrating sine from 0 to Pi")
-
     println("Интегрируем плохую функцию:")
 
     val riemann = RiemannIntegrator(100);
@@ -37,6 +33,12 @@ fun main(args: Array<String>) {
 
     val split = SplitIntegrator(riemann, listOf(0.4, 0.6))
     println("Раздельное интегрирование, 300 узлов: ${split.integrate(badFunc, 0.0, Math.PI)}")
+
+    val mc = UnivariateMonteCarloIntegrator(50000);
+    println("Метод Монте-Карло, 50000 узлов: ${mc.integrate(badFunc, 0.0, Math.PI)}")
+
+    val splitMC = SplitIntegrator(UnivariateMonteCarloIntegrator(1000), listOf(0.4, 0.6))
+    println("Раздельное интегрирование методом Монте-Карло, 3000 узлов: ${splitMC.integrate(badFunc, 0.0, Math.PI)}")
 
 }
 

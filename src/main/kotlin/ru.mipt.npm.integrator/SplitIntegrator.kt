@@ -6,7 +6,7 @@ class SplitIntegrator(val integrator: UnivariateIntegrator, val borders: List<Do
     override fun integrate(func: (Double) -> Double, a: Double, b: Double): Double {
         assert(b > a)
 
-        val filterBorders = borders.filter { it > a && it < b }
+        val filterBorders = borders.filter { it -> it > a && it < b }.sorted()
 
         var loBorder = a;
 
