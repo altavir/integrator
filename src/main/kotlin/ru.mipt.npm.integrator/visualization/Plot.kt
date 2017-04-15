@@ -28,7 +28,7 @@ class Plot : View("My View") {
     init {
         displayFunction(badFunc, 0.0, Math.PI, "bad")
         displayFunction(sinFunc, 0.0, Math.PI, "sin")
-        displayFunction({ x -> x * x }, 0.0, Math.PI, "parabola")
+        //displayFunction({ x -> x * x }, 0.0, Math.PI, "parabola")
     }
 
     fun displayFunction(function: (Double) -> Double, a: Double, b: Double, label: String = "", numPoints: Int = 600) {

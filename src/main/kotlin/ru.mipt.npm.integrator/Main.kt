@@ -1,7 +1,5 @@
 package ru.mipt.npm.integrator
 
-import java.nio.charset.Charset
-
 /**
  * Created by darksnake on 25-Mar-17.
  */
@@ -18,7 +16,7 @@ val badFunc = { x: Double -> Math.sin(x) + normal(x, sigma = 0.002) }
 
 fun main(args: Array<String>) {
 
-    println(Charset.defaultCharset())
+    //println(Charset.defaultCharset())
 
     println("Интегрируем плохую функцию:")
 
